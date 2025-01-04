@@ -10,8 +10,8 @@ function Form() {
         { label: 'Pulp Fiction', id: 2 },
     ];
     return (
-        <form className="form-container">
-            <Box sx={{ p: 2, border: '1px dashed grey' }}>
+        <form>
+            <Box sx={{ p: 10, border: '1px dashed grey' }}>
                 <Autocomplete
                     disablePortal
                     options={films}
