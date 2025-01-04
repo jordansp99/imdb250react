@@ -3,6 +3,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField'; // Import TextField
 import { Button } from '@mui/material';
 import Box from '@mui/material/Box';
+import './Form.css'
 
 function Form() {
     const films = [
@@ -11,7 +12,7 @@ function Form() {
     ];
     return (
         <form>
-            <Box sx={{ p: 10, border: '1px dashed grey' }}>
+            <Box className= 'box' sx={{ border: '1px solid black' }}>
                 <Autocomplete
                     disablePortal
                     options={films}
