@@ -2,7 +2,8 @@ import React from 'react';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField'; // Import TextField
 import { Button } from '@mui/material';
-import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+
 import './Form.css'
 
 function Form() {
@@ -12,15 +13,14 @@ function Form() {
     ];
     return (
         <form>
-            <Box className= 'box' sx={{ border: '1px solid black' }}>
-                <Autocomplete
+            <Card variant="outlined" sx={{ display: 'flex', alignItems: 'center', p: 2 }}> {/* Use Flexbox on the Card */}                <Autocomplete
                     disablePortal
                     options={films}
-                    sx={{ width: 300 }}
+                    sx={{ width: 300, p:3}}
                     renderInput={(params) => <TextField {...params} label="Movie" />}
                 />
                 <Button className="submit-btn" variant='contained'> Submit</Button>
-            </Box>
+            </Card>
         </form>
     );
 }

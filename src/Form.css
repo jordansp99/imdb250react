@@ -4,8 +4,3 @@ form{
   margin-top: 15rem;
   justify-content: center;
 }
-.box{
-  display: flex;
-  padding: 2rem;
-  gap: 1rem;
-}
