@@ -3,7 +3,6 @@ import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField'; // Import TextField
 import { Button } from '@mui/material';
 import Box from '@mui/material/Box';
-import './App.css';
 
 function Form() {
     const films = [
