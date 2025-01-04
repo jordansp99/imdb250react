@@ -1,11 +1,10 @@
-import React from 'react'; // Import React!
-import './App.css';
-import Button from '@mui/material/Button';
+import React from 'react';
+import Form from './Form'; // Correct import
 
 function App() {
   return (
     <>
-      
+      <Form />
     </>
   );
 }
