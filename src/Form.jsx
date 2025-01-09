@@ -36,7 +36,7 @@ function Form() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                 const response = await fetch('/clues_with_date.jsonl');
+                 const response = await fetch('clues_with_date.jsonl');
                  const text = await response.text();
                  const lines = text.trim().split('\n');
                  const parsedData = lines.map(line => JSON.parse(line));
