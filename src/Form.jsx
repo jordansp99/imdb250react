@@ -19,7 +19,7 @@ function Form() {
 
     // Helper function for seeded random number generation
     const seededRandom = (seed) => {
-        const x = Math.sin(seed) * 10000;
+        const x = Math.sin(seed) * 10001;
         return x - Math.floor(x);
     };
 
