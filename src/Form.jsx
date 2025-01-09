@@ -13,13 +13,14 @@ function Form() {
     const [currentClueIndex, setCurrentClueIndex] = useState(0);
     const [clues, setClues] = useState([]);
     const [showSubmit, setShowSubmit] = useState(true);
-     const [answerYear, setAnswerYear] = useState(null);
+    const [answerYear, setAnswerYear] = useState(null);
     const [revealAnswer, setRevealAnswer] = useState(false);
+    const [showYearAfterClues, setShowYearAfterClues] = useState(false);
 
 
     // Helper function for seeded random number generation
     const seededRandom = (seed) => {
-        const x = Math.sin(seed) * 10001;
+        const x = Math.sin(seed) * 99;
         return x - Math.floor(x);
     };
 
@@ -93,6 +94,9 @@ function Form() {
             if (currentClueIndex < allClues.length - 1 ) {
                  setClues(prevClues => [...prevClues, allClues[currentClueIndex + 1]]);
                  setCurrentClueIndex(prevIndex => prevIndex + 1);
+                if (currentClueIndex === allClues.length - 2) {
+                     setShowYearAfterClues(true); // Show year if it's the last clue
+                  }
                  setSelectedFilm(null);
             }
             else {
@@ -102,6 +106,8 @@ function Form() {
                  setCurrentClueIndex(0);
                 setShowSubmit(true);
                  setRevealAnswer(false);
+                 setShowYearAfterClues(false);
+
             }
         }
     };
@@ -134,16 +140,17 @@ function Form() {
                             </ListItem>
                         ))}
                     </List>
-                     {revealAnswer && ( 
-                        <Typography variant="h6" sx={{ mt: 2, fontWeight: 'bold' }}>
+                    {revealAnswer && (
+                         <Typography variant="h6" sx={{ mt: 2, fontWeight: 'bold' }}>
                            Answer: {todaysFilm['Film Name']} ({answerYear})
-                        </Typography>
-                      )}
-                       {!revealAnswer && answerYear && ( 
-                        <Typography variant="h6" sx={{ mt: 2, fontWeight: 'bold' }}>
+                         </Typography>
+                       )}
+                     {showYearAfterClues && !revealAnswer && (
+                       <Typography variant="h6" sx={{ mt: 2, fontWeight: 'bold' }}>
                            Year: {answerYear}
                         </Typography>
-                      )}
+                    )}
+
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mt: 2 }}>
                         <Autocomplete
                             disablePortal
